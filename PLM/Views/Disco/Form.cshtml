@@ -1,0 +1,68 @@
+﻿@model ML.Disco
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Form</h2>
+
+@using (Html.BeginForm("Form", "Disco", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    @Html.HiddenFor(model => model.IdDisco)
+
+
+    <div class="row">
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Titulo)
+            @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Artista)
+            @Html.TextBoxFor(model => model.Artista, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.GeneroMusical)
+            @Html.TextBoxFor(model => model.GeneroMusical, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Duracion)
+            @Html.TextBoxFor(model => model.Duracion, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Año)
+            @Html.TextBoxFor(model => model.Año, new { @class = "form-control" });
+        </div>
+
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Distribuidora)
+            @Html.TextBoxFor(model => model.Distribuidora, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Ventas)
+            @Html.TextBoxFor(model => model.Ventas, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.Disponibilidad)
+            @Html.TextBoxFor(model => model.Disponibilidad, new { @class = "form-control" });
+        </div>
+
+    </div>
+
+
+
+
+    <button class="btn btn-success" type="submit">GUARDAR</button>
+    <a class="btn btn-danger" href="@Url.Action("GetAll", "Disco")">REGRESAR</a>
+
+}
